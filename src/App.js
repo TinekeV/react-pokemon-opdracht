@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      Begin hier met de opdracht!
+      Opdracht hier
     </div>
   );
 }
