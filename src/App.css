@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Press+Start+2P&display=swap');
+
+body {
+    background-color: hsl(47, 100%, 75%);
+    font-family: 'Josefin', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 40px;
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.pokemon-container {
+    /*background-color: cornflowerblue;*/
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.pokemon-card {
+    width: 175px;
+    background-color: white;
+    border: 3px solid hsl(24, 100%, 75%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 6px 6px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+}
