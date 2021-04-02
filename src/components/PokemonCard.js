@@ -4,26 +4,20 @@ import "../App.css"
 
 function PokemonCard( {url} ) {
     const [pokemonCard, setPokemonCard] = useState({})
-    // const [pokemonAbilities, setPokemonAbilities] = useState([])
-    // const [moves, setMoves]
+    const [abilities, setAbilities] = useState([])
+    const [moves, setMoves] = useState("")
+    const [image, setImage] = useState("")
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const { data: { name, sprites: {front_default}, weight, moves, abilities } } = await axios.get(url)
-                setPokemonCard({
-                    name: name,
-                    image: front_default,
-                    weight: weight,
-                    moves: moves.length,
-                    abilities: abilities
-                })
+                const { data } = await axios.get(url)
+                setPokemonCard(data)
+                setMoves(data.moves)
+                setImage(data.sprites)
+                setAbilities(data.abilities)
 
-                console.log(name)
-                console.log(front_default)
-                console.log(weight)
-                console.log(moves)
-                console.log(abilities)
+                // console.log(data)
 
             } catch (e) {
                 console.error(e);
@@ -40,12 +34,12 @@ function PokemonCard( {url} ) {
                 {PokemonCard &&
                 <section className="card">
                     <h3>{pokemonCard.name}</h3>
-                    <img src={pokemonCard.image} alt="pokemon" />
+                    <img src={image.front_default} alt="pokemon" />
                     <p>Weight: {pokemonCard.weight}</p>
-                    <p>Moves: {pokemonCard.moves} </p>
-                    <p>Abilities: </p>
-                    {pokemonCard.abilities && pokemonCard.abilities.map((pokemonCar) => {
-                        return <li key={pokemonCard.id}>{pokemonCar.abilities}</li>
+                    <p>Moves: {moves.length} </p>
+                    <p className="abilities">Abilities </p>
+                    {abilities && abilities.map((ability) => {
+                        return <li key={ability.ability.name} className="ability-list">{ability.ability.name}</li>
                     })}
                 </section>}
 
